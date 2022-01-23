@@ -8,6 +8,7 @@ function onLoginSubmit(event){
     event.preventDefault();
     loginForm.classList.add(HIDDEN_CLASSNAME);
     const username = loginInput.value;
+    localStorage.setItem("username", username);
     //greeting.innerText = "Hello " + username; 1번쨰방법
     greeting.innerText = `Hello ${username}`; //2번째 방법 맥은 영어로 바꾸고하면됨
     greeting.classList.remove(HIDDEN_CLASSNAME);
