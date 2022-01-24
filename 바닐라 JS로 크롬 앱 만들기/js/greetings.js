@@ -3,12 +3,12 @@ const loginInput = document.querySelector("#login-form input");
 const greeting = document.querySelector("#greeting");
 
 const HIDDEN_CLASSNAME = "hidden"; //String 만 있을때 주소 대분자로 작성
-const USERNAME_KEY = "username"
+const USERNAME_KEY = "username";
 
 function onLoginSubmit(event){
     event.preventDefault();
     loginForm.classList.add(HIDDEN_CLASSNAME);
-    localStorage.setItem(USERNAME_KEY, username);
+    localStorage.setItem(USERNAME_KEY, loginInput.value);
     //greeting.innerText = "Hello " + username; 1번쨰방법
     paintGreetings();
 }
