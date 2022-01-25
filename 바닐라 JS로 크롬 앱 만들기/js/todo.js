@@ -2,6 +2,13 @@ const toDoForm = document.getElementById("todo-form");
 const toDoInput = document.querySelector("#todo-form input");
 const toDoList = document.getElementById("todo-list");
 
+
+const toDos = [];
+
+function saveToDos(){
+    localStorage.setItem("todos", JSON.stringify(toDos));
+}
+
 function deleteToDo(event){
     // console.dir(event.target.parentElement.innerText); 정보보기가 쉽다. 클릭된 element부모 찾기
     const li = event.target.parentElement;
@@ -24,8 +31,9 @@ function handleToDoSubmit(event){
     event.preventDefault();
     const newTodo = toDoInput.value;
     toDoInput.value = "";
+    toDos.push(newTodo);
     paintToDo(newTodo);
-
+    saveToDos();
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
