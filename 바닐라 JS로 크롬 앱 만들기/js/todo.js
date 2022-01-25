@@ -4,7 +4,7 @@ const toDoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "todos";
 
-const toDos = [];
+let toDos = [];
 
 function saveToDos(){
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)); //localStorage에는  array형식으로 저장이 안됨 -> JSON.stringify() 쓰면 됨
@@ -46,6 +46,8 @@ toDoForm.addEventListener("submit", handleToDoSubmit);
 const savedToDos = localStorage.getItem(TODOS_KEY);
 if(savedToDos !== null){
     const parsedToDos = JSON.parse(savedToDos);
-    parsedToDos.forEach((item)=> console.log("this is the turn of", item));
+    toDos = parsedToDos;
+    //parsedToDos.forEach((item)=> console.log("this is the turn of", item));
     //parsedToDos.forEach(sayHello);
+    parsedToDos.forEach(paintToDo);
 }
