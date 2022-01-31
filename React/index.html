@@ -12,7 +12,8 @@
         function App(){
             const [counter, setCount] = React.useState(0);
             const onClick = () => {
-                setCount(counter + 1);
+                //setCount(counter + 1);
+                setCount((current) => current+1); //현재 state를 바탕으로 다음 state를 계산하고 싶다면
                 //console.log(setCount);
             }
             return(
